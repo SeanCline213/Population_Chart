@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2025 US Populations</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem auto;
+        max-width: 1000px;
+        padding: 0 1rem;
+      }
+
+      svg {
+        display: block;
+        height: auto;
+        max-width: 100%;
+      }
+
+      button {
+        margin-bottom: 1rem;
+      }
+
+      [role="alert"] {
+        color: #b00020;
+      }
+
+      #state-tooltip {
+        position: fixed;
+        z-index: 10;
+        width: min(360px, calc(100vw - 2rem));
+        padding: 0.75rem 1rem;
+        border: 1px solid #777;
+        border-radius: 0.35rem;
+        background: #fff;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+        color: #222;
+        pointer-events: none;
+      }
+
+      #state-tooltip[hidden] {
+        display: none;
+      }
+
+      .tooltip-share {
+        display: block;
+        font-size: 1.25rem;
+      }
+
+      .tooltip-cities-heading {
+        margin-top: 0.45rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .tooltip-city-chart {
+        display: block;
+        height: auto;
+        margin-top: 0.25rem;
+        overflow: visible;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>2025 US Populations</h1>
+    <div id="chart"></div>
+    <p>
+      U.S. Census Bureau Vintage 2025 population estimates for the 50 states
+      and District of Columbia.
+      <a href="https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/state/totals/NST-EST2025-ALLDATA.csv">
+        Download the source CSV
+      </a>
+      ·
+      <a href="https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv">
+        Download the city estimates CSV
+      </a>
+      ·
+      <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html">
+        About these estimates
+      </a>
+    </p>
+    <p id="error" role="alert" hidden></p>
+    <button id="download" disabled>Save as PNG</button>
+    <div id="state-tooltip" role="tooltip" hidden></div>
+    <script type="module" src="./D3.js"></script>
+  </body>
+</html>
